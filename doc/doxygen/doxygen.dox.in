@@ -1,0 +1,47 @@
+/**
+ * @mainpage
+ * Project Website: https://github.com/linneman/tcm
+ *
+ * @verbinclude README
+ *
+ */
+
+/**
+ * @defgroup tcm Asynchronous Communication Channels for TinyScheme
+ * @brief tcm Version @VERSION@
+ *
+ * @section tcm About TCM
+ *
+ * The  original  motivation for  the  development  of communication  channels  for
+ * TinyScheme was the processing  of the Hayes AT command set as  used in USB based
+ * Wireless Mobile Communication Devices (USB CDC-TCM). Since we believe that there
+ * is much  broader scope of  potential applications, the implementation  should be
+ * considered as  a general design  pattern for  event processing with  an embedded
+ * scheme interpreter.
+ */
+
+
+/**
+ * @page tcm_install INSTALL
+ * @verbinclude INSTALL
+ */
+
+/**
+ * @page tcm_license COPYING
+ * @verbinclude COPYING
+ */
+
+/**
+ * @page tcm_routes_scm Scheme Macros and Functions for Routing
+ * @verbinclude src/routes.scm
+ */
+
+/**
+ * @page tcm_scm Scheme Macros and Functions for the Telephone Control Model
+ * @verbinclude src/tcm.scm
+ */
+
+/**
+ * @page tcm_changelog ChangeLog
+ * @verbinclude ChangeLog
+ */

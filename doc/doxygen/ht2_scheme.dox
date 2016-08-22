@@ -1,0 +1,18 @@
+/**
+ * @ingroup tcm Asynchronous Communication Channels for TinyScheme
+ * @defgroup scheme Embedded Scheme Interpreter
+ *
+ * The tcm daemon application  iswidely  based on the integrated  scheme script
+ * interpreter [TinyScheme](http://tinyscheme.sourceforge.net).
+ *
+ * The  TinyScheme  implementation  itself  is  integrated in  form  of  a  dynamic
+ * link   library,  runs   in  a   background   thread  and   offers  an   optional
+ * [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop). The
+ * corresponding implementation can be found in ucm_scheme.c.
+ *
+ * The  access to  the communication channels is  realized with  native scheme  functions
+ * implemented in C which can be found within the source file tcm_scheme_ext.c. The
+ * function  \ref init_tcm_ff  registered natively implemented scheme functions via
+ * TinyScheme's  foreign  function interface.  Refer to   README for more  detailed
+ * information about these functions.
+ */

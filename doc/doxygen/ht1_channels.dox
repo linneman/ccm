@@ -1,0 +1,36 @@
+/**
+ * @ingroup tcm Asynchronous Communication Channels for TinyScheme
+ * @defgroup channels Native Channel Implementation
+ *
+ * The communication channels presented here are an abstraction of processes linked
+ * to queues. This allows to sequentially  process events from sereval input queues
+ * without  blocking the  data sources  such as  TCP/UDP interprocess  commincation
+ * sockets and  device files e.g.  for serial line  communication or any  other I/O
+ * based data streams. The fundamental concept is strongly influenced by
+ * [Clojure's core.async](http://clojure.com/blog/2013/06/28/clojure-core-async-channels.html)
+ * library and  Go language channels but  the implementation given here  has more in
+ * common with  Javascript's event  mechanism. Unlike  Clojure, TinyScheme  is like
+ * Javascript  single  threaded  which  is  important as  a  precondition  for  its
+ * compactness and simplicity.
+ *
+ * All  concurrent operations  for  the  decoupling of  external  data sources  and
+ * synchronous processing are  realized by native posix threads. The  main focus of
+ * this approach is expressiveness,  extensibility and compactness for applications
+ * which  do not  explicitly  demand  for maximum  throughput  or strict  real-time
+ * capability. Many  applications such  as parsing,  filtering and  distribution of
+ * Hayes AT command sequences as presented here fall in this category.
+ *
+ *      --------                        ---------                       ---------
+ *     | Socket | -- Reader Thread -->  | queue |  --> Proc Thread --> / Scheme /
+ *      --------                        ---------                      ---------
+ *
+ * The reader thread constantly reads data from  a data source which can be a file,
+ * a  client or  a  server socket  and  stores the  result in  an  data queue.  The
+ * processing thread  reads out elements or  data chunks from that  queue and feeds
+ * them into the scheme interpreter by invoking a callback function with that data.
+ * The scheme  interpreter is protected by  a mutex which guarantees  that only one
+ * processing thread  at a time can  be executed. Given that  the scheme programmer
+ * has not  to worry about  thread safeness at all.  He can safely  update internal
+ * state and write out data to  any channel from any function respectively callback
+ * function context.
+ */
