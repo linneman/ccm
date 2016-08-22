@@ -1,6 +1,0 @@
-/**
- * @ingroup tcm Asynchronous Communication Channels for TinyScheme
- * @defgroup utils Utility Functions
- *
- * Additional utility functions which have not been provided as a library yet.
- */
